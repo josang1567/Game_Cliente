@@ -4,7 +4,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TextField;
 
-public class CrearJuegoController {
+public class CrearJuegoController implements Runnable {
 public TextField precioCompra;
 public TextField precioVenta;
 
@@ -29,6 +29,12 @@ public TextField precioVenta;
 		    }
 		});
 	
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

@@ -7,7 +7,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
-public class RegisterController {
+public class RegisterController implements Runnable{
 
 	public TextField contraseña;
 	public TextField saldo;
@@ -39,4 +39,10 @@ public class RegisterController {
 		    private void switchToLogin() throws IOException {
 		        App.setRoot("login");
 		    }
+
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+			
+		}
 }

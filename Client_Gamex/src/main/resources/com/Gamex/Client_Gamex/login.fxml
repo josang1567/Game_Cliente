@@ -29,7 +29,7 @@
                   <Insets left="30.0" />
                </HBox.margin>
             </Text>
-            <TextField>
+            <TextField fx:id="usuarioTextField">
                <HBox.margin>
                   <Insets left="30.0" />
                </HBox.margin>
@@ -43,7 +43,7 @@
                   <Font size="19.0" />
                </font>
             </Text>
-            <PasswordField>
+            <PasswordField fx:id="passwordTextField">
                <HBox.margin>
                   <Insets left="30.0" />
                </HBox.margin>
@@ -51,7 +51,7 @@
          </children>
       </HBox>
       <Separator prefWidth="200.0" />
-      <Button onAction="#switchToCompra" text="Inicio de sesion">
+      <Button onAction="#switchToInicio" text="Inicio de sesion">
          <font>
             <Font size="17.0" />
          </font>

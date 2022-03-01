@@ -2,14 +2,17 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.CustomMenuItem?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -25,7 +28,7 @@
             <items>
                   <CustomMenuItem mnemonicParsing="false" text="Unspecified Action">
                      <content>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="35.0" fitWidth="50.0" onMouseClicked="#switchToCarrito" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../../../../images/carrito.png" />
                            </image></ImageView>
@@ -33,6 +36,21 @@
                   </CustomMenuItem>
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Usuario">
+               <items>
+                  <CustomMenuItem mnemonicParsing="false" text="Unspecified Action">
+                     <content>
+                        <ButtonBar prefHeight="40.0" prefWidth="200.0">
+                          <buttons>
+                              <TextField />
+                            <Button mnemonicParsing="false" text="Añadir saldo" />
+                          </buttons>
+                        </ButtonBar>
+                     </content>
+                  </CustomMenuItem>
+               </items>
+            </Menu>
+            <Menu fx:id="saldo" disable="true" mnemonicParsing="false" text="Saldo:" />
         </menus>
       </MenuBar>
       <SplitPane dividerPositions="0.57764390896921" layoutX="-8.0" layoutY="27.0" prefHeight="373.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
@@ -51,6 +69,7 @@
                <content>
                   <VBox prefHeight="371.0" prefWidth="234.0">
                      <children>
+                        <Separator prefWidth="200.0" />
                         <ImageView fx:id="caratula" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../../../../../../../../../../../../Pictures/69598a8a52b5eb9f8339a7d8c70ae457.jpg" />
@@ -101,7 +120,7 @@
                         </HBox>
                         <Button mnemonicParsing="false" text="Añadir a Cesta">
                            <VBox.margin>
-                              <Insets left="80.0" top="60.0" />
+                              <Insets left="80.0" top="55.0" />
                            </VBox.margin>
                         </Button>
                      </children>

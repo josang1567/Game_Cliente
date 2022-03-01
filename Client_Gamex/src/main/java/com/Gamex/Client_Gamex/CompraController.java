@@ -11,6 +11,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
@@ -25,6 +26,8 @@ public class CompraController {
 	private TableColumn<Game, String> GameColumna2;
 	@FXML
 	private Label nombre;
+	@FXML
+	private Menu saldo;
 	@FXML
 	private Label precioVenta;
 	@FXML
@@ -71,4 +74,12 @@ public class CompraController {
 			precioVenta.setText("Sin datos");
 		}
 	}
+	
+	 @FXML
+	    private void switchToCarrito() throws IOException {
+	    	
+	    	
+	    	App.setRoot("Carrito");
+	       
+	    }
 }
