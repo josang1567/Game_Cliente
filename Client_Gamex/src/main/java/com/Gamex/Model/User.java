@@ -5,41 +5,41 @@ import java.util.List;
 
 
 public class User implements Serializable {
-	protected String nombre;
+	protected String name;
 	protected int id;
-	protected float saldo;
+	protected double money;
 	protected String password;
-	protected boolean Admin;
-	protected List<Game> juegos;
+	protected boolean admin;
+	protected List<Game> games;
 	
 	
-	public User(String nombre,  float saldo, String password) {
+	public User(String nombre,  double saldo, String password) {
 		super();
-		this.nombre = nombre;
+		this.name = nombre;
 	
-		this.saldo = saldo;
+		this.money = saldo;
 		this.password = password;
-		Admin = false;
-		juegos = null;
+		admin = false;
+		games = null;
 	}
 
 	public User() {
 		super();
-		this.nombre = null;
+		this.name = null;
 		this.id = -1;
-		this.saldo = 0.0f;
+		this.money = 0.0f;
 		this.password = "******";
-		Admin = false;
-		juegos = null;
+		admin = false;
+		games = null;
 
 	}
 	
 	public String getNombre() {
-		return nombre;
+		return name;
 	}
 
 	public void setNombre(String nombre) {
-		this.nombre = nombre;
+		this.name = nombre;
 	}
 
 	public int getId() {
@@ -50,12 +50,12 @@ public class User implements Serializable {
 		this.id = id;
 	}
 
-	public float getSaldo() {
-		return saldo;
+	public double getSaldo() {
+		return money;
 	}
 
-	public void setSaldo(float saldo) {
-		this.saldo = saldo;
+	public void setSaldo(double saldo) {
+		this.money = saldo;
 	}
 
 	public String getPassword() {
@@ -67,24 +67,24 @@ public class User implements Serializable {
 	}
 
 	public boolean isAdmin() {
-		return Admin;
+		return admin;
 	}
 
 	public void setAdmin(boolean admin) {
-		Admin = admin;
+		admin = admin;
 	}
 
 	public List<Game> getJuegos() {
-		return juegos;
+		return games;
 	}
 
 	public void setJuegos(List<Game> carrito) {
-		juegos = carrito;
+		games = carrito;
 	}
 
 	@Override
 	public String toString() {
-		return "User [nombre=" + nombre + ", saldo=" + saldo + ", password=" + password + "]";
+		return "User [nombre=" + name + ", saldo=" + money + ", password=" + password + "]";
 	}
 	
 	

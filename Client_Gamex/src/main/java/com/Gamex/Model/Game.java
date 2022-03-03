@@ -4,35 +4,35 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Game implements Serializable {
-	protected String nombre;
+	protected String name;
 	protected int id;
-	protected double precioCompra;
-	protected String caratula;
+	protected double price;
+	protected String photo;
 
 
 	public Game(String nombre,  double precioCompra, String caratula) {
 		super();
-		this.nombre = nombre;
-		this.precioCompra = precioCompra;
-		this.caratula = caratula;
+		this.name = nombre;
+		this.price = precioCompra;
+		this.photo = caratula;
 		
 	}
 
 	public Game() {
 		super();
-		this.nombre = "";
+		this.name = "";
 		this.id = -1;
-		this.precioCompra = 0.0f;
-		this.caratula = "";
+		this.price = 0.0f;
+		this.photo = "";
 		
 	}
 
 	public String getNombre() {
-		return nombre;
+		return name;
 	}
 
 	public void setNombre(String nombre) {
-		this.nombre = nombre;
+		this.name = nombre;
 	}
 
 	public int getId() {
@@ -47,27 +47,27 @@ public class Game implements Serializable {
 	
 
 	public double getPrecioCompra() {
-		return precioCompra;
+		return price;
 	}
 
 	public void setPrecioCompra(double precioCompra) {
-		this.precioCompra = precioCompra;
+		this.price = precioCompra;
 	}
 
 	public String getCaratula() {
-		return caratula;
+		return photo;
 	}
 
 	public void setCaratula(String caratula) {
-		this.caratula = caratula;
+		this.photo = caratula;
 	}
 
 	
 
 	@Override
 	public String toString() {
-		return "Game [nombre=" + nombre + ", id=" + id  + ", precioCompra="
-				+ precioCompra + ", caratula=" + caratula  + "]";
+		return "Game [nombre=" + name + ", id=" + id  + ", precioCompra="
+				+ price + ", caratula=" + photo  + "]";
 	}
 	
 	

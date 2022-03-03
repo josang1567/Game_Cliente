@@ -83,7 +83,7 @@ public class CarritoController {
 		if (cantidad.getText().equals(""))
 			return;
 
-		float total = user.getSaldo() + Integer.parseInt(cantidad.getText());
+		double total = user.getSaldo() + Integer.parseInt(cantidad.getText());
 		saldo.setText("Saldo:" + total);
 		user.setSaldo(total);
 		cantidad.setText("");
