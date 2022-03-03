@@ -7,12 +7,12 @@ public class Request_CreateGame extends Request{
 	Game game;
 
 	public Request_CreateGame(Game game) {
-		super("register");
+		super("createGame");
 		this.game = game;
 	}
 	
 	public Request_CreateGame() {
-		super("register");
+		super("createGame");
 		this.game = new Game();
 	}
 
