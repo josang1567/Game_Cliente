@@ -30,8 +30,8 @@
                      <content>
                         <ButtonBar prefHeight="40.0" prefWidth="200.0">
                            <buttons>
-                              <TextField />
-                              <Button mnemonicParsing="false" text="Añadir saldo" />
+                              <TextField fx:id="cantidad" />
+                              <Button mnemonicParsing="false" onAction="#AddMoney" text="Añadir saldo" />
                            </buttons>
                         </ButtonBar>
                      </content>
@@ -39,6 +39,15 @@
                </items>
             </Menu>
             <Menu fx:id="saldo" disable="true" mnemonicParsing="false" text="Saldo:" />
+            <Menu mnemonicParsing="false" text="LogOut">
+              <items>
+                  <CustomMenuItem mnemonicParsing="false" text="Unspecified Action">
+                     <content>
+                        <Button mnemonicParsing="false" onAction="#logOut" text="LogOut" />
+                     </content>
+                  </CustomMenuItem>
+              </items>
+            </Menu>
          </menus>
       </MenuBar>
       <SplitPane layoutX="-8.0" layoutY="27.0" prefHeight="373.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">

@@ -14,9 +14,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" prefHeight="400.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Gamex.Client_Gamex.CrearJuegoController">
+<VBox alignment="CENTER" prefHeight="529.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Gamex.Client_Gamex.CrearJuegoController">
    <children>
-      <Text smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" textAlignment="CENTER">
+      <Text smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Crear Juego" textAlignment="CENTER">
          <font>
             <Font name="Bell MT" size="39.0" />
          </font>
@@ -29,7 +29,7 @@
             <Insets bottom="15.0" top="15.0" />
          </VBox.margin>
       </Separator>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Label text="Nombre">
                <HBox.margin>
@@ -38,7 +38,7 @@
                <font>
                   <Font size="19.0" />
                </font></Label>
-            <TextField>
+            <TextField fx:id="nombre">
                <HBox.margin>
                   <Insets left="17.0" />
                </HBox.margin></TextField>
@@ -47,25 +47,7 @@
             <Insets bottom="15.0" />
          </VBox.margin>
       </HBox>
-      <HBox fx:id="precioVenta" prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Label text="Precio de venta">
-               <HBox.margin>
-                  <Insets left="47.0" />
-               </HBox.margin>
-               <font>
-                  <Font size="19.0" />
-               </font></Label>
-            <TextField>
-               <HBox.margin>
-                  <Insets left="17.0" />
-               </HBox.margin></TextField>
-         </children>
-         <VBox.margin>
-            <Insets bottom="15.0" />
-         </VBox.margin>
-      </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Label text="Precio de compra">
                <HBox.margin>
@@ -83,7 +65,7 @@
             <Insets bottom="15.0" />
          </VBox.margin>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Label />
          </children>
@@ -94,13 +76,13 @@
          </VBox.margin></Separator>
       <Label text="Caratula">
          <VBox.margin>
-            <Insets />
+            <Insets bottom="30.0" />
          </VBox.margin>
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <HBox prefHeight="200.0" prefWidth="372.0">
+      <HBox alignment="CENTER" prefHeight="200.0" prefWidth="372.0">
          <children>
             <GridPane prefHeight="134.0" prefWidth="178.0">
                <columnConstraints>
@@ -110,17 +92,17 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <ImageView fitHeight="116.0" fitWidth="154.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="portadaimage" fitHeight="116.0" fitWidth="154.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </GridPane>
             <VBox prefHeight="113.0" prefWidth="160.0">
                <children>
-                  <TextField editable="false" prefHeight="26.0" prefWidth="13.0">
+                  <TextField fx:id="urltext" editable="false" prefHeight="26.0" prefWidth="13.0">
                      <VBox.margin>
                         <Insets left="15.0" top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <Button mnemonicParsing="false" text="Añadir foto" textAlignment="CENTER">
+                  <Button fx:id="verimagen" mnemonicParsing="false" onAction="#selecImagen" text="Añadir foto" textAlignment="CENTER">
                      <VBox.margin>
                         <Insets left="15.0" top="25.0" />
                      </VBox.margin>
@@ -134,13 +116,28 @@
             <Insets bottom="15.0" top="15.0" />
          </VBox.margin>
       </Separator>
-      <Button mnemonicParsing="false" text="Añadir juego">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#addGame" text="Añadir juego">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#cancel" text="Cancelar">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Button>
+         </children>
          <VBox.margin>
-            <Insets bottom="25.0" />
+            <Insets bottom="30.0" />
          </VBox.margin>
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Button>
+      </HBox>
    </children>
 </VBox>

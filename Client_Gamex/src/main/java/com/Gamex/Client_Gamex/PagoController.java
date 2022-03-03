@@ -2,11 +2,30 @@ package com.Gamex.Client_Gamex;
 
 import java.io.IOException;
 
+import com.Gamex.Model.Game;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.image.ImageView;
 
 public class PagoController implements Runnable{
-
+	@FXML
+	private TableView<Game> tablaGames;
+	@FXML
+	private TableColumn<Game, String> GameColumna;
+	@FXML
+	private TableColumn<Game, String> GameColumna2;
+	@FXML
+	private Label nombre;
+	
+	@FXML
+	private Label precioVenta;
+	@FXML
+	private ImageView caratula;
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
@@ -15,15 +34,13 @@ public class PagoController implements Runnable{
 	 @FXML
 	    private void switchToInicio() throws IOException {
 	    	
-	    	mostrarPagoAler();
-			
-
+	    	mostrarAlert();	
 			App.setRoot("compra");
 	       
 	    }
 	 
 	 @FXML
-	    private void mostrarPagoAler() {
+	    private void mostrarAlert() {
 	        Alert alert = new Alert(Alert.AlertType.INFORMATION);
 	        alert.setHeaderText(null);
 	        alert.setTitle("Info");

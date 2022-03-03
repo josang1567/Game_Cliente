@@ -13,10 +13,10 @@ public class User implements Serializable {
 	protected List<Game> juegos;
 	
 	
-	public User(String nombre, int id, float saldo, String password) {
+	public User(String nombre,  float saldo, String password) {
 		super();
 		this.nombre = nombre;
-		this.id = id;
+	
 		this.saldo = saldo;
 		this.password = password;
 		Admin = false;
@@ -81,4 +81,11 @@ public class User implements Serializable {
 	public void setJuegos(List<Game> carrito) {
 		juegos = carrito;
 	}
+
+	@Override
+	public String toString() {
+		return "User [nombre=" + nombre + ", saldo=" + saldo + ", password=" + password + "]";
+	}
+	
+	
 }

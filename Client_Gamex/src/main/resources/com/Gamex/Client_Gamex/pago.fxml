@@ -13,17 +13,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Gamex.Client_Gamex.PagoController">
+<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="543.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Gamex.Client_Gamex.PagoController">
   <items>
-      <TableView prefHeight="200.0" prefWidth="200.0">
+      <TableView fx:id="tablaGames" prefHeight="200.0" prefWidth="200.0">
         <columns>
-          <TableColumn prefWidth="155.99999694824237" text="Juegos" />
-          <TableColumn prefWidth="140.00001525878906" text="Precio" />
+          <TableColumn fx:id="GameColumna" editable="false" prefWidth="155.99999694824237" resizable="false" text="Juegos" />
+          <TableColumn fx:id="GameColumna2" editable="false" prefWidth="140.00001525878906" resizable="false" text="Precio" />
         </columns>
       </TableView>
-      <ScrollPane prefHeight="200.0" prefWidth="200.0">
+      <ScrollPane prefHeight="398.0" prefWidth="250.0">
          <content>
-            <VBox prefHeight="371.0" prefWidth="234.0">
+            <VBox alignment="CENTER" prefHeight="371.0" prefWidth="234.0">
                <children>
                   <ImageView fx:id="caratula" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -55,7 +55,7 @@
                   </HBox>
                   <HBox prefHeight="34.0" prefWidth="250.0">
                      <children>
-                        <Label text="Precio de compra">
+                        <Label text="Precio">
                            <HBox.margin>
                               <Insets left="25.0" top="20.0" />
                            </HBox.margin>
@@ -68,7 +68,7 @@
                               <Insets />
                            </opaqueInsets>
                            <HBox.margin>
-                              <Insets left="15.0" top="20.0" />
+                              <Insets left="95.0" top="20.0" />
                            </HBox.margin>
                         </Label>
                      </children>

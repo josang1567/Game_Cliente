@@ -19,7 +19,7 @@
          </font>
       </Text>
       <Separator prefHeight="31.0" prefWidth="145.0" />
-      <HBox prefHeight="46.0" prefWidth="298.0">
+      <HBox alignment="CENTER" prefHeight="46.0" prefWidth="298.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario">
                <font>
@@ -36,7 +36,7 @@
             </TextField>
          </children>
       </HBox>
-      <HBox prefHeight="46.0" prefWidth="298.0">
+      <HBox alignment="CENTER" prefHeight="46.0" prefWidth="298.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña">
                <font>

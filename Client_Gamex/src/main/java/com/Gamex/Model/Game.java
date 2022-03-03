@@ -10,10 +10,9 @@ public class Game implements Serializable {
 	protected String caratula;
 
 
-	public Game(String nombre, int id,  double precioCompra, String caratula) {
+	public Game(String nombre,  double precioCompra, String caratula) {
 		super();
 		this.nombre = nombre;
-		this.id = id;
 		this.precioCompra = precioCompra;
 		this.caratula = caratula;
 		
