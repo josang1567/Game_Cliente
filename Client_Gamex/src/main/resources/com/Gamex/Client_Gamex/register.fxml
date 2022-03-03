@@ -21,20 +21,20 @@
          </VBox.margin>
       </Text>
       <Separator prefHeight="16.0" prefWidth="298.0" />
-      <HBox prefHeight="24.0" prefWidth="298.0">
+      <HBox alignment="CENTER" prefHeight="24.0" prefWidth="298.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario" textAlignment="RIGHT">
                <font>
                   <Font size="19.0" />
                </font>
             </Text>
-            <TextField>
+            <TextField fx:id="usuario">
                <HBox.margin>
                   <Insets left="40.0" />
                </HBox.margin></TextField>
          </children>
       </HBox>
-      <HBox prefHeight="23.0" prefWidth="268.0">
+      <HBox alignment="CENTER" prefHeight="23.0" prefWidth="268.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña">
                <font>
@@ -54,7 +54,7 @@
             <Insets />
          </opaqueInsets>
       </HBox>
-      <HBox prefHeight="30.0" prefWidth="298.0">
+      <HBox alignment="CENTER" prefHeight="30.0" prefWidth="298.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Saldo">
                <font>
@@ -68,11 +68,26 @@
          </children>
       </HBox>
       <Separator prefWidth="200.0" />
-      <Button onAction="#switchToLogin" text="Inicio de sesion">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Button>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button onAction="#createUser" text="Guardar usuario">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" top="15.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#cancel" text="Cancelar">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" top="15.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
    </children>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

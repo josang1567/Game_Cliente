@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.CustomMenuItem?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Gamex.Client_Gamex.CarritoController">
+   <children>
+      <MenuBar prefHeight="27.0" prefWidth="600.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="Carrito">
+               <items>
+                  <CustomMenuItem mnemonicParsing="false" text="Unspecified Action">
+                     <content>
+                        <Button mnemonicParsing="false" onAction="#switchToPago" text="Pago" />
+                     </content>
+                  </CustomMenuItem>
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Usuario">
+               <items>
+                  <CustomMenuItem mnemonicParsing="false" text="Unspecified Action">
+                     <content>
+                        <ButtonBar prefHeight="40.0" prefWidth="200.0">
+                           <buttons>
+                              <TextField fx:id="cantidad" />
+                              <Button mnemonicParsing="false" onAction="#AddMoney" text="Añadir saldo" />
+                           </buttons>
+                        </ButtonBar>
+                     </content>
+                  </CustomMenuItem>
+               </items>
+            </Menu>
+            <Menu fx:id="saldo" disable="true" mnemonicParsing="false" text="Saldo:" />
+            <Menu mnemonicParsing="false" text="LogOut">
+              <items>
+                  <CustomMenuItem mnemonicParsing="false" text="Unspecified Action">
+                     <content>
+                        <Button mnemonicParsing="false" onAction="#logOut" text="LogOut" />
+                     </content>
+                  </CustomMenuItem>
+              </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <SplitPane layoutX="-8.0" layoutY="27.0" prefHeight="373.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TableView fx:id="tablaGames" prefHeight="396.8" prefWidth="342.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columns>
+                        <TableColumn fx:id="GameColumna" prefWidth="285.6000183224678" text="Nombre del juego" />
+                        <TableColumn fx:id="GameColumna2" prefWidth="312.79998779296875" text="Precio(€)" />
+                     </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

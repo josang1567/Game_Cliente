@@ -5,39 +5,35 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
+import java.util.Random;
 import com.Gamex.Model.Game;
 import com.Gamex.Model.User;
-
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class CompraController {
+
+public class CarritoController {
+
 	@FXML
 	private TableView<Game> tablaGames;
 	@FXML
 	private TableColumn<Game, String> GameColumna;
 	@FXML
 	private TableColumn<Game, String> GameColumna2;
-	@FXML
-	private Label nombre;
-	@FXML
-	private Label precioVenta;
-	@FXML
-	private ImageView caratula;
 
 	@FXML
 	private Menu saldo;
@@ -49,14 +45,12 @@ public class CompraController {
 	@FXML
 	protected void initialize() {
 		List<Game> todas = new ArrayList<Game>();
-		muestraInfo(null);
-		configuraTabla();
 		user.setSaldo(45f);
 		saldo.setText("Saldo: " + user.getSaldo());
+		configuraTabla();
+
 		tablaGames.setItems(FXCollections.observableArrayList(todas));
-		tablaGames.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-			muestraInfo(newValue);
-		});
+
 		cantidad.textProperty().addListener(new ChangeListener<String>() {
 			@Override
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -65,6 +59,7 @@ public class CompraController {
 				}
 			}
 		});
+
 	}
 
 	private void configuraTabla() {
@@ -82,36 +77,23 @@ public class CompraController {
 
 	}
 
-	private void muestraInfo(Game g) {
-		if (g != null) {
-			nombre.setText(g.getNombre());
-			precioVenta.setText(String.valueOf(g.getPrecioCompra()));
-			File f = new File("file:" + g.getCaratula());
-			Image portada = new Image(f.getPath());
-			caratula.setImage(portada);
-		} else {
-			nombre.setText("Desconocido");
-			precioVenta.setText("Sin datos");
-		}
-	}
-
-	@FXML
-	private void switchToCarrito() throws IOException {
-
-		App.setRoot("Carrito");
-
-	}
-
 	@FXML
 	private void AddMoney() throws IOException {
+
 		if (cantidad.getText().equals(""))
 			return;
 
 		float total = user.getSaldo() + Integer.parseInt(cantidad.getText());
 		saldo.setText("Saldo:" + total);
 		user.setSaldo(total);
-
 		cantidad.setText("");
+
+	}
+
+	@FXML
+	private void switchToPago() throws IOException {
+
+		App.setRoot("pago");
 
 	}
 
@@ -130,7 +112,6 @@ public class CompraController {
 		Optional<ButtonType> result = alert.showAndWait();
 
 		if (result.get() == yesButton) {
-
 			App.setRoot("Login");
 		} else if (result.get() == noButton) {
 			return;
