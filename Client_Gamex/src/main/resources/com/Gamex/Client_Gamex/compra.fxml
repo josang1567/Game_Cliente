@@ -27,10 +27,7 @@
             <items>
                   <CustomMenuItem mnemonicParsing="false" text="Unspecified Action">
                      <content>
-                        <ImageView fitHeight="35.0" fitWidth="50.0" onMouseClicked="#switchToCarrito" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../../../images/carrito.png" />
-                           </image></ImageView>
+                        <Button mnemonicParsing="false" onAction="#switchToCarrito" text="Carrito" />
                      </content>
                   </CustomMenuItem>
             </items>

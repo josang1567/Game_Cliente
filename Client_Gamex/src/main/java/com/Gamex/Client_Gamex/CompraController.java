@@ -40,14 +40,15 @@ public class CompraController {
 	private ImageView caratula;
 
 	@FXML
-	private Menu saldo;
+	public  Menu saldo;
 	@FXML
 	private TextField cantidad;
 	private ObservableList< Game> juegos=FXCollections.observableArrayList(LoginController.rl.getShop().getGames());
-	public static User user = LoginController.rl.getUser();
+	public static User user =new User();
 
 	@FXML
 	protected void initialize() {
+		user= LoginController.rl.getUser();
 		
 		muestraInfo(null);
 		configuraTabla();
@@ -97,7 +98,17 @@ public class CompraController {
 
 	@FXML
 	private void switchToCarrito() throws IOException {
-
+		
+		if(user.getJuegos().isEmpty()) {
+		
+			Alert alert = new Alert(Alert.AlertType.WARNING);
+			alert.setHeaderText(null);
+			alert.setTitle("Info");
+			alert.setContentText("No hay juegos en el carrito");
+			alert.showAndWait();
+			return;
+		}
+		
 		App.setRoot("Carrito");
 
 	}
@@ -118,6 +129,11 @@ public class CompraController {
 	@FXML
 	private void addToCart() throws IOException{
 		user.getJuegos().add(tablaGames.getSelectionModel().getSelectedItem());
+		Alert alert = new Alert(Alert.AlertType.WARNING);
+		alert.setHeaderText(null);
+		alert.setTitle("Info");
+		alert.setContentText("Juego añadido a el carrito");
+		alert.showAndWait();
 		
 	}
 	

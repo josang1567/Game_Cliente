@@ -1,6 +1,8 @@
 package models.requests;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import models.Game;
 import models.User;
@@ -11,23 +13,23 @@ public class Request_Buy extends Request implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	Game game;
+	List<Game> games;
 	User user;
-	public Request_Buy(Game game, User user) {
-		super("request");
-		this.game = game;
+	public Request_Buy( List<Game> game, User user) {
+		super("buy");
+		this.games = game;
 		this.user = user;
 	}
 	public Request_Buy() {
 		super("request");
-		this.game = new Game();
+		this.games = new ArrayList<Game>();
 		this.user = new User();
 	}
-	public Game getGame() {
-		return game;
+	public List<Game> getGames() {
+		return games;
 	}
-	public void setGame(Game game) {
-		this.game = game;
+	public void setGame(List<Game> game) {
+		this.games = game;
 	}
 	public User getUser() {
 		return user;
@@ -39,7 +41,7 @@ public class Request_Buy extends Request implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + ((game == null) ? 0 : game.hashCode());
+		result = prime * result + ((games == null) ? 0 : games.hashCode());
 		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
 	}
@@ -52,10 +54,10 @@ public class Request_Buy extends Request implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Request_Buy other = (Request_Buy) obj;
-		if (game == null) {
-			if (other.game != null)
+		if (games == null) {
+			if (other.games != null)
 				return false;
-		} else if (!game.equals(other.game))
+		} else if (!games.equals(other.games))
 			return false;
 		if (user == null) {
 			if (other.user != null)
@@ -66,8 +68,10 @@ public class Request_Buy extends Request implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "Request_Buy [game=" + game + ", user=" + user + "]";
+		return "Request_Buy [game=" + games + ", user=" + user + "]";
 	}
+	
+	
 	
 	
 	

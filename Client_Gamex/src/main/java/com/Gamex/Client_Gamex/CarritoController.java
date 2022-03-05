@@ -36,7 +36,7 @@ public class CarritoController {
 	@FXML
 	private TextField cantidad;
 
-	private  User user =CompraController.user;
+	public static User user =CompraController.user;
 	private ObservableList< Game> juegos=FXCollections.observableArrayList(user.getJuegos());
 
 	@FXML

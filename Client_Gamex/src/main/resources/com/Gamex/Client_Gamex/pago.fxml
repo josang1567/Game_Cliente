@@ -73,7 +73,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <Button mnemonicParsing="false" onAction="#switchToInicio" text="Pagar">
+                  <Button mnemonicParsing="false" onAction="#switchToPago" text="Pagar">
                      <VBox.margin>
                         <Insets left="80.0" top="60.0" />
                      </VBox.margin>

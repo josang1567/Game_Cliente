@@ -8,9 +8,10 @@ import java.util.List;
 public class User implements Serializable {
 	/**
 	 * 
+	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	protected String name;
+	protected String username;
 	protected int id;
 	protected double money;
 	protected String password;
@@ -20,7 +21,7 @@ public class User implements Serializable {
 	
 	public User(String nombre,  double saldo, String password) {
 		super();
-		this.name = nombre;
+		this.username = nombre;
 	
 		this.money = saldo;
 		this.password = password;
@@ -35,11 +36,11 @@ public class User implements Serializable {
 	}
 	
 	public String getNombre() {
-		return name;
+		return username;
 	}
 
 	public void setNombre(String nombre) {
-		this.name = nombre;
+		this.username = nombre;
 	}
 
 	public int getId() {
@@ -84,7 +85,7 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [nombre=" + name + ", saldo=" + money + ", password=" + password + "]";
+		return "User [nombre=" + username + ", saldo=" + money + ", password=" + password + "]";
 	}
 	
 	
