@@ -1,10 +1,15 @@
-package com.Gamex.Response;
+package models.responses;
 
-import com.Gamex.Model.Game;
-import com.Gamex.Model.Shop;
-import com.Gamex.Model.User;
+import java.io.Serializable;
 
-public class Response_CreateGame extends Response{
+import models.Game;
+
+public class Response_CreateGame extends Response implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private boolean accepted;
 	private Game game;

@@ -1,10 +1,16 @@
-package com.Gamex.Requests;
+package models.requests;
 
-import com.Gamex.Model.Game;
-import com.Gamex.Model.User;
+import java.io.Serializable;
 
-public class Request_Buy extends Request{
+import models.Game;
+import models.User;
+
+public class Request_Buy extends Request implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Game game;
 	User user;
 	public Request_Buy(Game game, User user) {

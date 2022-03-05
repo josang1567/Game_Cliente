@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Gamex.Client_Gamex.CompraController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="752.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Gamex.Client_Gamex.CompraController">
    <children>
       <MenuBar prefHeight="27.0" prefWidth="600.0" AnchorPane.bottomAnchor="373.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
@@ -61,11 +61,11 @@
             </Menu>
         </menus>
       </MenuBar>
-      <SplitPane dividerPositions="0.57764390896921" layoutX="-8.0" layoutY="27.0" prefHeight="373.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
+      <SplitPane dividerPositions="0.4400319829424306" layoutX="-8.0" layoutY="27.0" prefHeight="373.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
          <items>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="372.0" prefWidth="362.0">
                <children>
-                  <TableView fx:id="tablaGames" prefHeight="396.8" prefWidth="342.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView fx:id="tablaGames" prefHeight="372.0" prefWidth="327.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <columns>
                         <TableColumn fx:id="GameColumna" prefWidth="161.5999999642372" text="Nombre del juego" />
                         <TableColumn fx:id="GameColumna2" prefWidth="178.40005493164062" text="Precio(€)" />
@@ -73,9 +73,9 @@
                   </TableView>
                </children>
             </AnchorPane>
-            <ScrollPane prefHeight="200.0" prefWidth="200.0">
+            <ScrollPane prefHeight="372.0" prefWidth="390.0">
                <content>
-                  <VBox alignment="CENTER" prefHeight="371.0" prefWidth="234.0">
+                  <VBox alignment="CENTER" prefHeight="371.0" prefWidth="418.0">
                      <children>
                         <ImageView fx:id="caratula" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -87,7 +87,7 @@
                         </ImageView>
                         <HBox alignment="CENTER" prefHeight="30.0" prefWidth="250.0">
                            <children>
-                              <Label text="Nombre ">
+                              <Label prefHeight="22.0" prefWidth="70.0" text="Nombre " HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets left="25.0" top="35.0" />
                                  </HBox.margin>
@@ -95,19 +95,19 @@
                                     <Font name="Bell MT" size="17.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="nombre" text="Label">
+                              <Label fx:id="nombre" prefHeight="18.0" prefWidth="125.0" text="Label" HBox.hgrow="ALWAYS">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
                                  <HBox.margin>
-                                    <Insets left="75.0" top="35.0" />
+                                    <Insets left="30.0" top="35.0" />
                                  </HBox.margin>
                               </Label>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="34.0" prefWidth="250.0">
                            <children>
-                              <Label text="Precio de compra">
+                              <Label prefHeight="22.0" prefWidth="134.0" text="Precio de compra" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets left="25.0" top="20.0" />
                                  </HBox.margin>
@@ -115,7 +115,7 @@
                                     <Font name="Bell MT" size="17.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="precioVenta" text="Label">
+                              <Label fx:id="precioVenta" prefHeight="18.0" prefWidth="71.0" text="Label" HBox.hgrow="ALWAYS">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -125,7 +125,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Button mnemonicParsing="false" text="Añadir a Cesta">
+                        <Button mnemonicParsing="false" onAction="#addToCart" text="Añadir a Cesta">
                            <VBox.margin>
                               <Insets left="80.0" top="55.0" />
                            </VBox.margin>

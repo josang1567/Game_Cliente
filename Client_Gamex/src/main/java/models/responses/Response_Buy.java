@@ -1,57 +1,74 @@
-package com.Gamex.Response;
+package models.responses;
 
-import com.Gamex.Model.Shop;
-import com.Gamex.Model.User;
+import java.io.Serializable;
 
-public class Response_Login extends Response{
+import models.Game;
+import models.User;
+
+public class Response_Buy extends Response implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private boolean accepted;
 	private User user;
-	private Shop shop;
+	private Game game;
 	
-	public Response_Login() {
-		super("login");
+	public Response_Buy() {
+		super("buy");
 	}
-	public Response_Login(boolean accepted, User user, Shop shop) {
-		super("login");
+
+	public Response_Buy(boolean accepted, User user, Game game) {
+		super("buy");
 		this.accepted = accepted;
 		this.user = user;
-		this.shop = shop;
+		this.game = game;
 	}
+
 	public boolean isAccepted() {
 		return accepted;
 	}
+
 	public void setAccepted(boolean accepted) {
 		this.accepted = accepted;
 	}
+
 	public User getUser() {
 		return user;
 	}
+
 	public void setUser(User user) {
 		this.user = user;
 	}
-	public Shop getShop() {
-		return shop;
-	}
-	public void setShop(Shop shop) {
-		this.shop = shop;
+
+	public Game getGame() {
+		return game;
 	}
 
+	public void setGame(Game game) {
+		this.game = game;
+	}
+
+	
+	
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
 		if (!super.equals(obj))
 			return false;
-		if (!(obj instanceof Response_Login))
+		if (getClass() != obj.getClass())
 			return false;
-		Response_Login other = (Response_Login) obj;
+		Response_Buy other = (Response_Buy) obj;
 		if (accepted != other.accepted)
 			return false;
-		if (shop == null) {
-			if (other.shop != null)
+		if (game == null) {
+			if (other.game != null)
 				return false;
-		} else if (!shop.equals(other.shop))
+		} else if (!game.equals(other.game))
 			return false;
 		if (user == null) {
 			if (other.user != null)
@@ -60,10 +77,10 @@ public class Response_Login extends Response{
 			return false;
 		return true;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Response_Login [name="+ super.getName() +", accepted=" + accepted + ", user=" + user + ", shop=" + shop + "]";
+		return "Response_Buy [accepted=" + accepted + ", user=" + user + ", game=" + game + "]";
 	}
 	
 	

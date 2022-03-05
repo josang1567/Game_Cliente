@@ -1,24 +1,25 @@
-package com.Gamex.Requests;
+package models.requests;
+import java.io.Serializable;
 
-
-public class Request_Register extends Request{
+public class Request_Login extends Request implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	String username;
 	String password;
-	double money;
 	
-	public Request_Register(String username, String password, double money) {
-		super("register");
+	public Request_Login(String username, String password) {
+		super("login");
 		this.username = username;
 		this.password = password;
-		this.money=money;
 	}
 	
-	public Request_Register() {
-		super("register");
+	public Request_Login() {
+		super("login");
 		this.username = "";
 		this.password = "";
-		this.money=0f;
 	}
 
 	public String getUsername() {
@@ -33,22 +34,11 @@ public class Request_Register extends Request{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	public double getMoney() {
-		return money;
-	}
-
-	public void setMoney(double money) {
-		this.money = money;
-	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		long temp;
-		temp = Double.doubleToLongBits(money);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
@@ -60,11 +50,9 @@ public class Request_Register extends Request{
 			return true;
 		if (!super.equals(obj))
 			return false;
-		if (!(obj instanceof Request_Register))
+		if (!(obj instanceof Request_Login))
 			return false;
-		Request_Register other = (Request_Register) obj;
-		if (Double.doubleToLongBits(money) != Double.doubleToLongBits(other.money))
-			return false;
+		Request_Login other = (Request_Login) obj;
 		if (password == null) {
 			if (other.password != null)
 				return false;
@@ -80,7 +68,6 @@ public class Request_Register extends Request{
 
 	@Override
 	public String toString() {
-		return "Request_Login [name="+super.getName()+", username=" + username + ", password=" + password + ", money="+money+"]";
+		return "Request_Login [username=" + username + ", password=" + password + "]";
 	}
-	
 }

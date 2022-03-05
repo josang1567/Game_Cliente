@@ -1,9 +1,15 @@
-package com.Gamex.Requests;
+package models.requests;
 
-import com.Gamex.Model.Game;
+import java.io.Serializable;
 
-public class Request_CreateGame extends Request{
+import models.Game;
+
+public class Request_CreateGame extends Request implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Game game;
 
 	public Request_CreateGame(Game game) {

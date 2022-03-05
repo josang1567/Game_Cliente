@@ -2,13 +2,12 @@ package com.Gamex.Client_Gamex;
 
 import java.io.IOException;
 
-import com.Gamex.Model.User;
-
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import models.User;
 
 public class RegisterController implements Runnable {
 	@FXML

@@ -1,9 +1,13 @@
-package com.Gamex.Model;
+package models;
 
 import java.io.Serializable;
-import java.util.Date;
+
 
 public class Game implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected String name;
 	protected int id;
 	protected double price;

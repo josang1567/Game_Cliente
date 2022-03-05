@@ -2,15 +2,13 @@ package com.Gamex.Client_Gamex;
 
 import java.io.IOException;
 
-import com.Gamex.Model.Game;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.image.ImageView;
+import models.Game;
 
 public class PagoController implements Runnable{
 	@FXML

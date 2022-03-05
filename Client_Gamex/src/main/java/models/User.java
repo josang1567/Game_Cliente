@@ -1,10 +1,15 @@
-package com.Gamex.Model;
+package models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class User implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected String name;
 	protected int id;
 	protected double money;
@@ -25,12 +30,7 @@ public class User implements Serializable {
 
 	public User() {
 		super();
-		this.name = null;
-		this.id = -1;
-		this.money = 0.0f;
-		this.password = "******";
-		admin = false;
-		games = null;
+		this.games=new ArrayList<Game>();
 
 	}
 	

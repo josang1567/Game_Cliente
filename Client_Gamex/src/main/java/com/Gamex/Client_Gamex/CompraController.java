@@ -6,24 +6,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import com.Gamex.Model.Game;
-import com.Gamex.Model.User;
-
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import models.Game;
+import models.User;
 
 public class CompraController {
 	@FXML
@@ -43,17 +43,17 @@ public class CompraController {
 	private Menu saldo;
 	@FXML
 	private TextField cantidad;
-
-	private User user = new User();
+	private ObservableList< Game> juegos=FXCollections.observableArrayList(LoginController.rl.getShop().getGames());
+	public static User user = LoginController.rl.getUser();
 
 	@FXML
 	protected void initialize() {
-		List<Game> todas = new ArrayList<Game>();
+		
 		muestraInfo(null);
 		configuraTabla();
-		user.setSaldo(45f);
+		
 		saldo.setText("Saldo: " + user.getSaldo());
-		tablaGames.setItems(FXCollections.observableArrayList(todas));
+		tablaGames.setItems(FXCollections.observableArrayList(juegos));
 		tablaGames.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
 			muestraInfo(newValue);
 		});
@@ -115,6 +115,13 @@ public class CompraController {
 
 	}
 
+	@FXML
+	private void addToCart() throws IOException{
+		user.getJuegos().add(tablaGames.getSelectionModel().getSelectedItem());
+		
+	}
+	
+	
 	@FXML
 	private void logOut() throws IOException {
 		Alert alert = new Alert(AlertType.WARNING);
