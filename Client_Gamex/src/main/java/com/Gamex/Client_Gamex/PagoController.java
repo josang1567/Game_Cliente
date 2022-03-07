@@ -93,7 +93,7 @@ public class PagoController implements Runnable {
 	private void switchToPago() throws IOException {
 
 		try {
-			System.out.println("ssdds\n");
+		
 			ObjectOutputStream flujoSalida = new ObjectOutputStream(cliente.getOutputStream());
 			List<Game> Lista=new ArrayList<Game>(juegos);
 			flujoSalida.writeObject(new Request_Buy(Lista,LoginController.rl.getUser()));

@@ -2,6 +2,9 @@ package com.Gamex.Client_Gamex;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -24,6 +27,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import models.Game;
 import models.User;
+import models.requests.Request_Edit;
+import models.requests.Request_Login;
+import models.responses.Response_Edit;
+import models.responses.Response_Login;
 
 public class CompraController {
 	@FXML
@@ -37,15 +44,13 @@ public class CompraController {
 	@FXML
 	private Label precioVenta;
 	@FXML
-	private ImageView caratula;
-
-	@FXML
 	public  Menu saldo;
 	@FXML
 	private TextField cantidad;
 	private ObservableList< Game> juegos=FXCollections.observableArrayList(LoginController.rl.getShop().getGames());
 	public static User user =new User();
-
+	public static Socket cliente = LoginController.cliente;
+	static Response_Edit re;
 	@FXML
 	protected void initialize() {
 		user= LoginController.rl.getUser();
@@ -87,9 +92,7 @@ public class CompraController {
 		if (g != null) {
 			nombre.setText(g.getNombre());
 			precioVenta.setText(String.valueOf(g.getPrecioCompra()));
-			File f = new File("file:" + g.getCaratula());
-			Image portada = new Image(f.getPath());
-			caratula.setImage(portada);
+		
 		} else {
 			nombre.setText("Desconocido");
 			precioVenta.setText("Sin datos");
@@ -117,11 +120,40 @@ public class CompraController {
 	private void AddMoney() throws IOException {
 		if (cantidad.getText().equals(""))
 			return;
-
 		double total = user.getSaldo() + Integer.parseInt(cantidad.getText());
-		saldo.setText("Saldo:" + total);
+		
 		user.setSaldo(total);
+		
+		if (cliente != null) {
+			try {
+				ObjectOutputStream flujoSalida = new ObjectOutputStream(cliente.getOutputStream());
+				flujoSalida.writeObject(new Request_Edit(user));
+			
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
+		}
+		/**
+		 * esperar
+		 */
+
+		try {
+
+			if (cliente != null) {
+				ObjectInputStream flujoEntrada = new ObjectInputStream(cliente.getInputStream());
+				re = (Response_Edit) flujoEntrada.readObject();
+				App.setRoot("compra");
+			}
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		cantidad.setText("");
 
 	}

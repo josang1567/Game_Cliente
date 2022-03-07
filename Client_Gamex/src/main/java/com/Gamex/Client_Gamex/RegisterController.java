@@ -69,7 +69,6 @@ public class RegisterController implements Runnable {
 			try {
 				ObjectOutputStream flujoSalida = new ObjectOutputStream(cliente.getOutputStream());
 				flujoSalida.writeObject(new Request_Register(usuario.getText(),contraseña.getText(), Double.valueOf(saldo.getText()) ));
-				System.out.println("enviado");
 				
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -86,8 +85,7 @@ public class RegisterController implements Runnable {
 			if (cliente != null) {
 				ObjectInputStream flujoEntrada = new ObjectInputStream(cliente.getInputStream());
 				rl = (Response_Login) flujoEntrada.readObject();
-				
-				System.out.println(rl.isAccepted());
+			
 				
 				if(rl.isAccepted()==false) {
 					AlreadyExistsAlert();

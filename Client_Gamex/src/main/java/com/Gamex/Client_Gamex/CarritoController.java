@@ -1,6 +1,9 @@
 package com.Gamex.Client_Gamex;
 
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -20,6 +23,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import models.Game;
 import models.User;
+import models.requests.Request_Edit;
+import models.responses.Response_Edit;
 
 
 public class CarritoController {
@@ -38,7 +43,9 @@ public class CarritoController {
 
 	public static User user =CompraController.user;
 	private ObservableList< Game> juegos=FXCollections.observableArrayList(user.getJuegos());
+	public static Socket cliente = LoginController.cliente;
 
+	static Response_Edit re;
 	@FXML
 	protected void initialize() {
 		
@@ -79,10 +86,48 @@ public class CarritoController {
 
 		if (cantidad.getText().equals(""))
 			return;
-
 		double total = user.getSaldo() + Integer.parseInt(cantidad.getText());
-		saldo.setText("Saldo:" + total);
+		
 		user.setSaldo(total);
+		
+		if (cliente != null) {
+			try {
+				ObjectOutputStream flujoSalida = new ObjectOutputStream(cliente.getOutputStream());
+				flujoSalida.writeObject(new Request_Edit(user));
+				System.out.println("enviado");
+
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+		/**
+		 * esperar
+		 */
+
+		try {
+
+			if (cliente != null) {
+				ObjectInputStream flujoEntrada = new ObjectInputStream(cliente.getInputStream());
+				re = (Response_Edit) flujoEntrada.readObject();
+			
+				System.out.println(re);
+				App.setRoot("carrito");
+			}
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+	
+
 		cantidad.setText("");
 
 	}

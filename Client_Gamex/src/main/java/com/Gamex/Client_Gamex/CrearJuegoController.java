@@ -2,6 +2,9 @@ package com.Gamex.Client_Gamex;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -14,6 +17,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import models.Game;
+import models.requests.Request_CreateGame;
+import models.requests.Request_Login;
+import models.responses.Response_CreateGame;
+import models.responses.Response_Login;
 
 public class CrearJuegoController implements Runnable {
 	@FXML
@@ -21,13 +28,9 @@ public class CrearJuegoController implements Runnable {
 	@FXML
 	public TextField precioCompra;
 	
+	public static Socket cliente = LoginController.cliente;
+	static Response_CreateGame rc;
 
-	@FXML
-	private ImageView portadaimage;
-	@FXML
-	private TextField urltext;
-	@FXML
-	private Button verimagen;
 
 	public void initialize() {
 		precioCompra.textProperty().addListener(new ChangeListener<String>() {
@@ -45,7 +48,7 @@ public class CrearJuegoController implements Runnable {
 
 	@FXML
 	private void addGame() throws IOException {
-		if (nombre.getText().matches("") || precioCompra.getText().matches("") 	|| urltext.getText().matches("")) {
+		if (nombre.getText().matches("") || precioCompra.getText().matches("") ) {
 			mostrarAlertCampos();
 			return;
 		}
@@ -54,14 +57,52 @@ public class CrearJuegoController implements Runnable {
 			mostrarAlertCampos2();
 			return;
 		}
-		Game juegonuevo = new Game(nombre.getText(), Float.valueOf(precioCompra.getText()), urltext.getText());
+		
+		
+		Game juegonuevo = new Game(nombre.getText(), Float.valueOf(precioCompra.getText()));
 
-		System.out.println(juegonuevo);
+		
+		/**
+		 * enviar
+		 */
+		if (cliente != null) {
+			try {
+				ObjectOutputStream flujoSalida = new ObjectOutputStream(cliente.getOutputStream());
+				flujoSalida.writeObject(new Request_CreateGame(juegonuevo));
+				
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+		/**
+		 * esperar
+		 */
+
+		try {
+
+			if (cliente != null) {
+				ObjectInputStream flujoEntrada = new ObjectInputStream(cliente.getInputStream());
+				rc = (Response_CreateGame) flujoEntrada.readObject();
+				
+				
+			}
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
+	
 
 		nombre.setText("");
 		precioCompra.setText("");
-		urltext.setText("");
-		portadaimage.setImage(null);
+		
 	}
 
 	@FXML
@@ -69,29 +110,7 @@ public class CrearJuegoController implements Runnable {
 		App.setRoot("login");
 	}
 
-	@FXML
-	private void selecImagen() {
-		urltext.setText("");
-		File file = null;
-		FileChooser filechooser = new FileChooser();
-		filechooser.setTitle("Selecionar imagen...");
-		try {
-			file = filechooser.showOpenDialog(null);
-			if (file != null && file.getPath().matches(".+\\.png") || file.getPath().matches(".+\\.jpg")) {
-				Image img = new Image("file:\\" + file.getPath());
-				portadaimage.setImage(img);
-				urltext.setText(file.getPath());
-			} else { // si la extension es incorrecta sale esta alerta
-				Alert alert = new Alert(AlertType.INFORMATION);
-				alert.setHeaderText(null);
-				alert.setTitle("Información");
-				alert.setContentText("Formato incorrecto: Debe elegir un tipo de archivo jpg o png.");
-				alert.showAndWait();
-			}
-		} catch (Exception e) {
-			// TODO: handle exception;
-		}
-	}
+	
 
 	@FXML
 	private void mostrarAlertCampos() {

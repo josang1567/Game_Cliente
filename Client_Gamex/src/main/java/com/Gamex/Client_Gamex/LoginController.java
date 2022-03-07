@@ -54,7 +54,7 @@ public class LoginController implements Runnable {
 			try {
 				ObjectOutputStream flujoSalida = new ObjectOutputStream(cliente.getOutputStream());
 				flujoSalida.writeObject(new Request_Login(usuarioTextField.getText(), passwordTextField.getText()));
-				System.out.println("enviado");
+				
 
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

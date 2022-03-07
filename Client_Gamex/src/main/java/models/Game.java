@@ -11,14 +11,14 @@ public class Game implements Serializable {
 	protected String name;
 	protected int id;
 	protected double price;
-	protected String photo;
+	
 
 
-	public Game(String nombre,  double precioCompra, String caratula) {
+	public Game(String nombre,  double precioCompra) {
 		super();
 		this.name = nombre;
 		this.price = precioCompra;
-		this.photo = caratula;
+	
 		
 	}
 
@@ -27,7 +27,7 @@ public class Game implements Serializable {
 		this.name = "";
 		this.id = -1;
 		this.price = 0.0f;
-		this.photo = "";
+	
 		
 	}
 
@@ -58,20 +58,13 @@ public class Game implements Serializable {
 		this.price = precioCompra;
 	}
 
-	public String getCaratula() {
-		return photo;
-	}
-
-	public void setCaratula(String caratula) {
-		this.photo = caratula;
-	}
-
+	
 	
 
 	@Override
 	public String toString() {
 		return "Game [nombre=" + name + ", id=" + id  + ", precioCompra="
-				+ price + ", caratula=" + photo  + "]";
+				+ price + "]";
 	}
 	
 	
